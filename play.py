@@ -1,4 +1,4 @@
-# 這是什麼？
+# 載入其他檔案中的函式
 import speech_recognition as sr
 from speech import recognize_speech_from_mic
 
@@ -18,6 +18,9 @@ while True:
     # 辨識成功
     if result["success"]:
         print("You say: {}".format(result["transcription"]))
+
+    if result["transcription"] == "32":
+        print("你猜對了！")
 
     # 辨識失敗
     if result["error"]:
