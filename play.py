@@ -1,6 +1,7 @@
 # 載入其他檔案中的函式
 import speech_recognition as sr
 from speech import recognize_speech_from_mic
+from line import linebot_write
 
 # 載入設定檔
 from config import CHUNK_SIZE, SAMPLE_RATE
@@ -21,9 +22,7 @@ while True:
     # 辨識成功
     if result["success"]:
         print("You say: {}".format(result["transcription"]))
-
-    if result["transcription"] == "32":
-        print("你猜對了！")
+        linebot_write("你說的是： " + result["transcription"])
 
     # 辨識失敗
     if result["error"]:
