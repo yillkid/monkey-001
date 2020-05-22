@@ -26,7 +26,7 @@ while True:
     # 辨識成功
     if result["success"]:
         print("You say: {}".format(result["transcription"]))
-        # linebot_write("你說的是： ".format(result["transcription"]))
+        linebot_write("你說的是： ".format(result["transcription"]))
         serial_write("1")
 
     # 辨識失敗
