@@ -9,6 +9,14 @@ from config import CHUNK_SIZE, SAMPLE_RATE
 
 # 無限迴圈
 while True:
+    # 在每次迴圈開始之前，等待 micro:bit 上的 b 按鈕按下
+    while True:
+        content_from_serial = serial_read()
+        if content_from_serial == "b":
+            break
+        elif content_from_serial == "a":
+            continue
+
     # 呼叫 Google speech recognizer
     recognizer = sr.Recognizer()
 
