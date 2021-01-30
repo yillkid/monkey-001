@@ -1,3 +1,4 @@
+import random
 # 載入其他檔案中的函式
 import speech_recognition as sr
 from speech import recognize_speech_from_mic
@@ -7,7 +8,13 @@ from config import CHUNK_SIZE, SAMPLE_RATE
 
 balance = 1000
 while True:
-   # 呼叫 Google speech recognizer
+    print("本金 " + str(balance))
+    # 擲骰子
+    print("請擲骰子:")
+    points = random.randint(1, 6)
+    print("點數為: " + str((points)))
+
+    # 呼叫 Google speech recognizer
     recognizer = sr.Recognizer()
 
     # 設定麥克風
@@ -18,22 +25,17 @@ while True:
     # 啟用麥克風 -->  聽 --> 思考 --> 把語音轉成文字丟出來
     result = recognize_speech_from_mic(recognizer, microphone)
 
-    # 到這裡先跳出來！
     # 辨識成功
     if result["success"]:
-        print("你說的是: {}".format(result["transcription"]))
+        print("You say: {}".format(result["transcription"]))
 
     # 辨識失敗
     if result["error"]:
-        print("錯誤: {}".format(result["error"]))
+        print("ERROR: {}".format(result["error"]))
 
-    break
+    # 到這裡繼續往上迴圈！
+    continue
 
-    print("本金 " + str(balance))
-    # 擲骰子
-    print("請擲骰子:")
-    points = input()
-    print("點數為: " + points)
 
     # if 機會
 
