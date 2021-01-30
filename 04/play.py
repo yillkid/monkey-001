@@ -32,6 +32,7 @@ while True:
     # 辨識失敗
     if result["error"]:
         print("ERROR: {}".format(result["error"]))
+        continue
 
     # 到這裡繼續往上迴圈！
     continue
