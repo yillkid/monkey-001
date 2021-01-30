@@ -31,6 +31,7 @@ while True:
     # 辨識失敗
     if result["error"]:
         print("ERROR: {}".format(result["error"]))
+        continue
 
     # 擲骰子語音
     if result["transcription"] == "隨機":
